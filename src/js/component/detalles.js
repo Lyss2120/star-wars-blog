@@ -1,0 +1,1 @@
+//poner fotos e info de cada prsonaje
