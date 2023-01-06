@@ -1,34 +1,18 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
-
-			character: null,
+			description: "A person within the Star Wars universe",
+			loremDescription: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat totam laudantium enim blanditiis temporibus veritatis reiciendis nisi, eius hic? Odio.",
+			pagination: {},
+			character: [],
 			favoritos: [],
-			people: [],
-			peoples: null,
-			planet: null,
-			planets: null,
-			vehicles: null,
-			vehicles: null
+			peoples: [],
+			planets: [],
+			vehicles: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			/* 			hola: ()=>{
-							const {description} = people; 
-							console.log(description, 'people');
-						}, */
+			
 
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -64,7 +48,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then((response) => response.json())
 					.then((data) => {
-						setStore({ peoples: data.results }) // trae obj con array results[...characters{name + uid + url}] y obj next{}
+						console.log({data});
+						setStore({ peoples : data.results }) // trae obj con array results[...characters{name + uid + url}] y obj next{}
+						setStore({ pagination : data })
 					})
 					.catch((error) => { console.log(error) });
 			},
@@ -79,6 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then((response) => response.json())
 					.then((data) => {
+						console.log({data});
 						setStore({ "planets": data.results })
 					})
 					.catch((error) => { console.log(error) });
@@ -94,54 +81,55 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then((response) => response.json())
 					.then((data) => {
+						console.log('data vehicles', data);
 						setStore({ "vehicles": data.results })
 					})
 					.catch((error) => { console.log(error) });
 			},
 
 			//url desde el componente en el llamado a detailcharacters en useeffect
-			detailPeople: (url) => {
-				const store = getStore();
-				fetch(url, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-					.then((response) => response.json())
-					.then((result) => {
-						setStore({ "people": result.result })
-					})
-					.catch((error) => { console.log(error) });
-			},
-			detailPlanets: (url) => {
-				const store = getStore();
-				fetch(url, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-					.then((response) => response.json())
-					.then((data) => {
-						setStore({ "planets": data.results.properties })
-					})
-					.catch((error) => { console.log(error) });
-			},
-			detailVehicles: (url) => {
-				const store = getStore();
-				fetch(url, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-					.then((response) => response.json())
-					.then((data) => {
-						setStore({ "vehicles": data.results.properties })
-					})
-					.catch((error) => { console.log(error) });
-			},
+			// detailPeople: (url) => {
+			// 	fetch(url, {
+			// 		method: 'GET',
+			// 		headers: {
+			// 			'Content-Type': 'application/json'
+			// 		}
+			// 	})
+			// 		.then((response) => response.json())
+			// 		.then((result) => {
+			// 			// console.log('detailpeople', result);
+			// 			setStore({ people: result })
+			// 		})
+			// 		.catch((error) => { console.log(error) });
+			// },
+			// detailPlanets: (url) => {
+			// 	const store = getStore();
+			// 	fetch(url, {
+			// 		method: 'GET',
+			// 		headers: {
+			// 			'Content-Type': 'application/json'
+			// 		}
+			// 	})
+			// 		.then((response) => response.json())
+			// 		.then((data) => {
+			// 			setStore({ planet: data.result })
+			// 		})
+			// 		.catch((error) => { console.log(error) });
+			// },
+			// detailVehicles: (url) => {
+			// 	const store = getStore();
+			// 	fetch(url, {
+			// 		method: 'GET',
+			// 		headers: {
+			// 			'Content-Type': 'application/json'
+			// 		}
+			// 	})
+			// 		.then((response) => response.json())
+			// 		.then((data) => {
+			// 			setStore({ "vehicle": data.result })
+			// 		})
+			// 		.catch((error) => { console.log(error) });
+			// },
 
 			agregarFavorito: (name) => {
 				const store = getStore();
@@ -162,8 +150,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getCharacterByName: async (name) => {
 				const store = getStore();
-				let found = store.peoples.find((fav) => fav.name === name)
-				//accede a las propiedades dentro del obj properties???
+				let found = store.peoples.find((peoples) => peoples.name === name)
+				//found es la people con el mismo name, y todas sus propiedades
+				console.log({found});
 				const response = await fetch(found.url, {
 					method: 'GET',
 					headers: {
@@ -171,8 +160,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 				const data = await response.json()
-				const character={...found, properties:data.result.properties}
-				setStore({ character: character })
+				console.log(data);
+				setStore({ character: data })
 
 			}
 

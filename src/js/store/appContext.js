@@ -31,9 +31,9 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-			 state.actions.getCharacters('https://www.swapi.tech/api/people/');
-			 state.actions.getPlanets('https://www.swapi.tech/api/planets/');
-			 state.actions.getVehicles('https://www.swapi.tech/api/vehicles/');
+			 state.actions.getCharacters('https://swapi.dev/api/people/');
+			 state.actions.getPlanets('https://swapi.dev/api/planets/');
+			 state.actions.getVehicles('https://swapi.dev/api/vehicles/');
 
 		}, []);
 

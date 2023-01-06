@@ -21,7 +21,7 @@ const CardVehicles = ({ detalles, agregarFavorito, name, model, passengers, vehi
                                     Learn more!
                                 </button>
                             </Link>
-                            <button href="#" className="btn btn-outline-primary "
+                            <button href="#" className="btn btn-outline-warning "
                                 // onClick={() => actions.agregarFavorito(name)}
                                 onClick={() => agregarFavorito(name)}
                             >

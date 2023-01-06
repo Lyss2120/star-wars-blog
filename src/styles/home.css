@@ -3,7 +3,19 @@ body{
     background-image: url("https://images3.alphacoders.com/563/563119.jpg");
     
 }
+.characterName{
+    font-size: 50px;
+    font-weight: 600;
+}
+.fontDetail{
+    font-size: 25px;
+    font-weight: 600;
+}
+.fontbtn{
+    font-size: 18px;
+    font-weight: 600;
 
+}
 .texto{
     color: rgb(178, 177, 179);
 }
@@ -15,7 +27,7 @@ body{
     font-weight: bolder;
 }
 .btnLuz:hover{
-    box-shadow: 0px 0px 12px 1px rgba(236, 236, 236, 0.596);
+    box-shadow: 0px 0px 12px 1px rgba(250, 248, 248, 0.596);
 
 }
 .background:hover{

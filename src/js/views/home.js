@@ -8,7 +8,7 @@ import "../../styles/home.css";
 
 
 
-//poner aqui todo lo que vaya en la pag. y los detalles serian otra view pero que accede con link
+// este si
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 /* 	const url = store.peoples.results[url];
@@ -19,31 +19,51 @@ export const Home = () => {
 /* 	console.log(store.test.results, "test");
  */	return (
 		<div>
-			<span className='container text-danger fw-bold fs-1 d-flex text-start my-3 py-4 background rounded'>Characters</span>
-			<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded ">
+			<span className='container text-danger characterName d-flex text-start my-3 py-4 background rounded'>Characters</span>
+			<div className="container-md d-flex overflow-auto shadow-lg p-3 background rounded ">
+				<button
+					className="btn btn-dark shadow-lg mb-3 background text-light "
+					onClick={() => actions.getCharacters(store?.pagination?.previous)}>
+					<span>PREV</span>
+				</button>
 				{!!store.peoples &&
 					store.peoples?.map((item, index) => {
+						console.log(store.peoples);
+
 						return (
 							<CardCharacters
-								key={item.uid}
-								name={item.name}						
+								key={index}
+								name={item.name}
+								gender={item.gender}
+								hair_color={item.hair_color}
+								eye_color={item.eye_color}
 								url={item.url}
+
 								agregarFavorito={actions.agregarFavorito}
 								detailPeople={actions.detailPeople}
 								detalles={"/DetailCharacters/" + item.name}
 							/>
 						);
 					})}
-{/* 				<button
-					className="btn btn-light shadow-lg p-3 mb-3"
-					onClick={() => actions.getCharacters(store.people?.next)}>next
-				</button> */}
+
+				<button
+					className="btn btn-dark shadow-lg mb-3 background text-light "
+					onClick={() => actions.getCharacters(store?.pagination?.next)}>
+					<span>NEXT</span>
+				</button>
 			</div>
 
 
-			<span className='container text-danger fw-bold fs-1 d-flex text-start my-3 py-4 background rounded'>Planets</span>
+
+
+			<span className='container text-danger characterName d-flex text-start my-3 py-4 background rounded'>Planets</span>
 			<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
-				{/*store.planets.map((item, index) => {
+				<button
+					className="btn btn-dark shadow-lg mb-3 background text-light "
+					onClick={() => actions.getPlanets(store?.pagination?.previous)}>
+					<span>PREV</span>
+				</button>
+				{store.planets.map((item, index) => {
 					return (
 						<CardPlanets
 							key={index}
@@ -56,22 +76,28 @@ export const Home = () => {
 
 						/>
 					);
-				})} 
-{/* 				<button
-					className="btn btn-light shadow-lg p-3 mb-3"
-					onClick={() => actions.getCharacters(store.people?.next)}>next
-				</button> */}
+				})}
+				<button
+					className="btn btn-dark shadow-lg mb-3 background text-light "
+					onClick={() => actions.getPlanets(store?.pagination?.next)}>
+					<span>NEXT</span>
+				</button>
 			</div>
 
 
 
 
-			<span className='container text-danger fw-bold fs-1 d-flex text-start my-3 py-4 background rounded'>Vehicles</span>
+			<span className='container text-danger  characterName d-flex text-start my-3 py-4 background rounded'>Vehicles</span>
 			<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
-				{/*store.vehicles.map((item) => {
+				<button
+					className="btn btn-dark shadow-lg mb-3 background text-light "
+					onClick={() => actions.getVehicles(store?.pagination?.previous)}>
+					<span>PREV</span>
+				</button>
+				{store.vehicles.map((item, index) => {
 					return (
 						<CardVehicles
-							key={item.url}
+							key={index}
 							name={item.name}
 							model={item.model}
 							passengers={item.passengers}
@@ -83,10 +109,11 @@ export const Home = () => {
 						/>
 					);
 				})}
-{/* 				<button
-					className="btn btn-light shadow-lg p-3 mb-3"
-					onClick={() => actions.getCharacters(store.people?.next)}>next
-				</button> */}
+				<button
+					className="btn btn-dark shadow-lg mb-3 background text-light "
+					onClick={() => actions.getVehicles(store?.pagination?.next)}>
+					<span>NEXT</span>
+				</button>
 			</div>
 		</div>
 	);

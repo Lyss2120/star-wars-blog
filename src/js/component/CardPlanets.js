@@ -19,7 +19,7 @@ const CardPlanets = ({  detalles, agregarFavorito, name, population, terrain, im
                                 Learn more!
                             </button>
                         </Link>
-                        <button href="#" className="btn btn-outline-primary "
+                        <button href="#" className="btn btn-outline-warning "
                             // onClick={() => actions.agregarFavorito(name)}
                             onClick={() => agregarFavorito(name)}
                         >

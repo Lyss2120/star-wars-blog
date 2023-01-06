@@ -10,8 +10,8 @@ export const Navbar = () => {
 	let favs = store.favoritos.length;
 
 	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
+		<nav className="navbar navbar-light bg-light opacity-75">
+			<div className="container ">
 				<Link to="/">
 					<span className="navbar-brand "><img src={logo} alt="logo" width={100} /></span>
 				</Link>
@@ -19,14 +19,14 @@ export const Navbar = () => {
 					<button className="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" >
 						Favoritos <span className="badge bg-secondary">{favs}</span>
 					</button>
-					<ul className="dropdown-menu dropdown-menu-end d-flex flex-column mx-4 ">
+					<ul className="dropdown-menu dropdown-menu-end">
 
 						{store.favoritos.length > 0 ? (
 							store.favoritos.map((fav, i) => {
 								console.log(store.favoritos);
 								return (
 									<li key={i}
-										className="d-flex justify-content-between"
+										className="d-flex justify-content-between py-2 text-start"
 									>
 										<Link to={"/DetailCharacters/"+fav.name} >
 											<button className="btn p-2 ">{fav.name}</button>
