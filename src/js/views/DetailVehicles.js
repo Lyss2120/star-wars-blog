@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import rigo from '../../img/rigo-baby.jpg';
 import { Context } from "../store/appContext";
 import { useContext } from "react";
 
@@ -9,7 +8,7 @@ const DetailVehicles = () => {
     const { store, actions } = useContext(Context);
     const { name } = useParams()
     useEffect(() => {
-        actions.getCharacterByName(name)//byuid? byurl
+        actions.getVehicleByName(name)//byuid? byurl
 
     }, [name])
 

@@ -3,7 +3,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-const CardCharacters = ({ detalles, agregarFavorito, image, name, gender, hair_color, eye_color, url }) => {
+const CardCharacters = ({ detalles, agregarFavorito, image, name, gender, hair_color, eye_color }) => {
 
     return (
         <>

@@ -4,11 +4,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			description: "A person within the Star Wars universe",
 			loremDescription: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat totam laudantium enim blanditiis temporibus veritatis reiciendis nisi, eius hic? Odio.",
 			pagination: {},
-			character: null,
 			favoritos: [],
 			peoples: [],
 			planets: [],
-			vehicles: []
+			vehicles: [],
+			character: null,
+			planet: null,
+			vehicle: null,
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -24,10 +26,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					const data = await res.json()
 					console.log({ data });
-					setStore({ peoples: data.results }); 
+					setStore({ peoples: data.results });
 					setStore({ pagination: data });
-
+					return true
 				}
+				
 				catch (error) { console.log(error) };
 			},
 
@@ -94,15 +97,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await response.json()
 				console.log(data);
 				setStore({ character: data })
-
 			},
 
 			getPlanetByName: async (name) => {
 				const store = getStore();
-				let found = store?.planets?.find((planets) => planets.name === name)
-				//found es la people con el mismo name, y todas sus propiedades
-				console.log({ found });
-				const response = await fetch(found.url, {
+				let foundPlanet = store?.planets?.find((planets) => planets.name === name)
+				//foundPlanet es la people con el mismo name, y todas sus propiedades
+				console.log({ foundPlanet });
+				const response = await fetch(foundPlanet.url, {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json'
@@ -111,15 +113,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await response.json()
 				console.log(data);
 				setStore({ planet: data })
-
 			},
 
 			getVehicleByName: async (name) => {
 				const store = getStore();
-				let found = store?.vehicles?.find((vehicles) => vehicles.name === name)
-				//found es la people con el mismo name, y todas sus propiedades
-				console.log({ found });
-				const response = await fetch(found.url, {
+				let foundVehicle = store?.vehicles?.find((vehicles) => vehicles.name === name)
+				//foundVehicle es la people con el mismo name, y todas sus propiedades
+				console.log({ foundVehicle });
+				const response = await fetch(foundVehicle.url, {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json'
@@ -128,7 +129,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await response.json()
 				console.log(data);
 				setStore({ vehicle: data })
-
 			}
 		}
 	};

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-
 import CardCharacters from "../component/CardCharacters";
 import CardPlanets from "../component/CardPlanets";
 import CardVehicles from "../component/CardVehicles";
@@ -10,14 +9,7 @@ import Cargando from "../component/cargando";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-/* 	const url = store.peoples.results[url];
-    useEffect(() => {
-        //actions.getCharacterByName(name)//byuid? byurl el fetch primero se hace en usecontext como un useeffect al cargar la pag
-        actions.detailPeople(url)
-    }, ) */		/*!store.peoples.length > 0 ?
-
-/* 	console.log(store.test.results, "test");
- */	return (
+	return (
 		<>
 
 			<div>
@@ -32,7 +24,6 @@ export const Home = () => {
 							</button>
 							{
 								store.peoples?.map((item, index) => {
-									console.log(store.peoples);
 
 									return (
 										<CardCharacters
@@ -42,9 +33,7 @@ export const Home = () => {
 											hair_color={item.hair_color}
 											eye_color={item.eye_color}
 											url={item.url}
-
 											agregarFavorito={actions.agregarFavorito}
-											detailPeople={actions.detailPeople}
 											detalles={"/DetailCharacters/" + item.name}
 										/>
 									);
@@ -72,7 +61,6 @@ export const Home = () => {
 										name={item.name}
 										population={item.population}
 										terrain={item.terrain}
-										url={item.url}
 										agregarFavorito={actions.agregarFavorito}
 										detalles={"/DetailPlanets/" + item.name}
 
@@ -101,7 +89,6 @@ export const Home = () => {
 										model={item.model}
 										passengers={item.passengers}
 										vehicle_class={item.vehicle_class}
-										url={item.url}
 										agregarFavorito={actions.agregarFavorito}
 										detalles={"/DetailVehicles/" + item.name}
 
