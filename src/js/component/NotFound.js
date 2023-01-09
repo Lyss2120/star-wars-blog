@@ -8,7 +8,6 @@ const NotFound = () => {
             <h3 className='mt-2 px-5 m-5'>This is not the page that you're looking for...</h3>
             <h1 className='d-flex justify-content-center'>MOVE ALONG...</h1>
             <h1 className='d-flex justify-content-center'>MOVE ALONG...</h1>
-
         </div>
 
     )

@@ -15,29 +15,31 @@ body{
 .fontbtn{
     font-size: 18px;
     font-weight: 600;
+    box-shadow: 0px 0px 12px 1px rgba(226, 221, 221, 0.596);
+    font-weight: bolder ;
 
 }
+.favBtn:hover{
+    background: rgb(213, 55, 55)!important;
+    box-shadow: 0px 0px 12px 1px rgba(226, 221, 221, 0.596);
+    border: none;
 
+}
 .texto{
     color: rgb(178, 177, 179);
 }
 .texto2{
     font-size: 60px;
 }
-.btnLuz{
-    background-color: rgb(240, 65, 65);
-    font-weight: bolder;
+.navbar{
+    background-color: rgba(98, 120, 139, 0.536);
+    box-shadow: 0px 0px 12px 1px rgb(236, 236, 236);  
 }
-.btnLuz:hover{
-    box-shadow: 0px 0px 12px 1px rgba(250, 248, 248, 0.596);
-}
+
 .background:hover{
     box-shadow: 0px 0px 12px 1px rgba(236, 236, 236, 0.596);
 }
-.cargando{
-    box-shadow: 0px 0px 12px 1px rgba(236, 236, 236, 0.596);
-  
-}
+
 .background{
     background-color: rgba(98, 120, 139, 0.329);
     backdrop-filter: blur(1px);
@@ -46,4 +48,7 @@ body{
     background-image: url(https://images2.alphacoders.com/763/76382.jpg);
     height: 100vh;
     
+}
+.cargando{
+    box-shadow: 0px 0px 12px 1px rgba(236, 236, 236, 0.596);  
 }

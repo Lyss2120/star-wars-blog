@@ -10,13 +10,13 @@ export const Navbar = () => {
 	let favs = store.favoritos.length;
 
 	return (
-		<nav className="navbar navbar-light bg-light ">
+		<nav className="navbar navbar-light navbar ">
 			<div className="container ">
 				<Link to="/">
-					<span className="navbar-brand "><img src={logo} alt="logo" width={100} /></span>
+					<span className="navbar-brand logo"><img src={logo} alt="logo" width={100} /></span>
 				</Link>
 				<div className="dropdown mx-3 ">
-					<button className="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" >
+					<button className="btn btn-dark dropdown-toggle favBtn" type="button" data-bs-toggle="dropdown" >
 						Favoritos <span className="badge bg-secondary">{favs}</span>
 					</button>
 					<ul className="dropdown-menu dropdown-menu-end ">
