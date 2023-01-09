@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			description: "A person within the Star Wars universe",
 			loremDescription: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat totam laudantium enim blanditiis temporibus veritatis reiciendis nisi, eius hic? Odio.",
 			pagination: {},
-			character: [],
+			character: null,
 			favoritos: [],
 			peoples: [],
 			planets: [],
@@ -12,7 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			
+
 
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -38,21 +38,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			//1° fetch para sacr el url de cada personaje
-			getCharacters: (url) => {
-				const store = getStore();
-				fetch(url, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-					.then((response) => response.json())
-					.then((data) => {
-						console.log({data});
-						setStore({ peoples : data.results }) // trae obj con array results[...characters{name + uid + url}] y obj next{}
-						setStore({ pagination : data })
+			getCharacters: async (url) => {
+				try {
+					const res = await fetch(url, {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json'
+						}
 					})
-					.catch((error) => { console.log(error) });
+					const data = await res.json()
+					console.log({ data });
+					setStore({ peoples: data.results }); 
+					setStore({ pagination: data });
+
+				}
+				catch (error) { console.log(error) };
 			},
 
 			getPlanets: (url) => {
@@ -65,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then((response) => response.json())
 					.then((data) => {
-						console.log({data});
+						console.log({ data });
 						setStore({ "planets": data.results })
 					})
 					.catch((error) => { console.log(error) });
@@ -150,9 +150,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getCharacterByName: async (name) => {
 				const store = getStore();
-				let found = store.peoples.find((peoples) => peoples.name === name)
+				let found = store?.peoples?.find((peoples) => peoples.name === name)
 				//found es la people con el mismo name, y todas sus propiedades
-				console.log({found});
+				console.log({ found });
 				const response = await fetch(found.url, {
 					method: 'GET',
 					headers: {

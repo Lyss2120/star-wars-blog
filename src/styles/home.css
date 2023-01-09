@@ -1,7 +1,8 @@
 
 body{
-    background-image: url("https://images3.alphacoders.com/563/563119.jpg");
-    
+    background-image: url("https://images.alphacoders.com/107/107763.jpg");
+    /* scrollbar-color: red; */
+    background-size: 150%;
 }
 .characterName{
     font-size: 50px;
@@ -16,6 +17,7 @@ body{
     font-weight: 600;
 
 }
+
 .texto{
     color: rgb(178, 177, 179);
 }
@@ -28,16 +30,19 @@ body{
 }
 .btnLuz:hover{
     box-shadow: 0px 0px 12px 1px rgba(250, 248, 248, 0.596);
-
 }
 .background:hover{
     box-shadow: 0px 0px 12px 1px rgba(236, 236, 236, 0.596);
+}
+.cargando{
+    box-shadow: 0px 0px 12px 1px rgba(236, 236, 236, 0.596);
+  
 }
 .background{
     background-color: rgba(98, 120, 139, 0.329);
     backdrop-filter: blur(1px);
 }
-.notfound{
+.notfound, .cargando{
     background-image: url(https://images2.alphacoders.com/763/76382.jpg);
     height: 100vh;
     
