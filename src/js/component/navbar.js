@@ -23,22 +23,37 @@ export const Navbar = () => {
 
 						{store.favoritos.length > 0 ? (
 							store.favoritos.map((fav, i) => {
-								console.log(store.favoritos);
-								return (
-									<li key={i}
-										className=" py-2 text-start "
-									>
-										<Link to={"/DetailCharacters/"+fav.name} >
-											<button className="btn p-2 ">{fav.name}</button>
-										</Link>
 
+								return (
+									<div className="d-flex justify-content-between">
+										<li key={i}
+											className="text-start "
+										>
+											{
+												!!fav.gender ?
+													(<Link to={"/DetailCharacters/" + fav.name} >
+														<button className="btn p-2 ">{fav.name}</button>
+													</Link>)
+													:
+													!!fav.population ?
+														(<Link to={"/DetailPlanets/" + fav.name} >
+															<button className="btn p-2 ">{fav.name}</button>
+														</Link>)
+														:
+														(<Link to={"/DetailVehicles/" + fav.name} >
+															<button className="btn p-2 ">{fav.name}</button>
+														</Link>)
+											}
+										</li>
 										<button
-											className="btn text-end"
+											className="btn"
 											onClick={() => actions.borrarFavorito(fav.name)}
 										>
 											<FaTrash />
 										</button>
-									</li>)
+
+									</div>
+								)
 							})
 						) :
 							(<li>empty</li>)}
