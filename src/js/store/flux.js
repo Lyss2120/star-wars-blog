@@ -13,30 +13,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			// Use getActions to call a function within a fuction
 
-
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			},
-
 			//1° fetch para sacr el url de cada personaje
 			getCharacters: async (url) => {
 				try {
@@ -87,50 +63,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => { console.log(error) });
 			},
 
-			//url desde el componente en el llamado a detailcharacters en useeffect
-			// detailPeople: (url) => {
-			// 	fetch(url, {
-			// 		method: 'GET',
-			// 		headers: {
-			// 			'Content-Type': 'application/json'
-			// 		}
-			// 	})
-			// 		.then((response) => response.json())
-			// 		.then((result) => {
-			// 			// console.log('detailpeople', result);
-			// 			setStore({ people: result })
-			// 		})
-			// 		.catch((error) => { console.log(error) });
-			// },
-			// detailPlanets: (url) => {
-			// 	const store = getStore();
-			// 	fetch(url, {
-			// 		method: 'GET',
-			// 		headers: {
-			// 			'Content-Type': 'application/json'
-			// 		}
-			// 	})
-			// 		.then((response) => response.json())
-			// 		.then((data) => {
-			// 			setStore({ planet: data.result })
-			// 		})
-			// 		.catch((error) => { console.log(error) });
-			// },
-			// detailVehicles: (url) => {
-			// 	const store = getStore();
-			// 	fetch(url, {
-			// 		method: 'GET',
-			// 		headers: {
-			// 			'Content-Type': 'application/json'
-			// 		}
-			// 	})
-			// 		.then((response) => response.json())
-			// 		.then((data) => {
-			// 			setStore({ "vehicle": data.result })
-			// 		})
-			// 		.catch((error) => { console.log(error) });
-			// },
-
 			agregarFavorito: (name) => {
 				const store = getStore();
 				let found = store.favoritos.find((fav) => fav.name === name)
@@ -163,29 +95,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(data);
 				setStore({ character: data })
 
+			},
+
+			getPlanetByName: async (name) => {
+				const store = getStore();
+				let found = store?.planets?.find((planets) => planets.name === name)
+				//found es la people con el mismo name, y todas sus propiedades
+				console.log({ found });
+				const response = await fetch(found.url, {
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				const data = await response.json()
+				console.log(data);
+				setStore({ planet: data })
+
+			},
+
+			getVehicleByName: async (name) => {
+				const store = getStore();
+				let found = store?.vehicles?.find((vehicles) => vehicles.name === name)
+				//found es la people con el mismo name, y todas sus propiedades
+				console.log({ found });
+				const response = await fetch(found.url, {
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				const data = await response.json()
+				console.log(data);
+				setStore({ vehicle: data })
+
 			}
-
-
-
 		}
 	};
 }
 
 export default getState;
 
-
-			//es necesario? con el primer fetch ya tengo la data completa
-/* 		detailCharacter: (url) => {
-			const { url } = getStore();
-			fetch({ url }, {//pasar la url de cada personaje
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					setStore({ "detailpeople": data.results })
-				})
-				.catch((error) => { console.log(error) });
-		}, */
