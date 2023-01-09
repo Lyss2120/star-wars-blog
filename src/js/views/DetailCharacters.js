@@ -8,14 +8,15 @@ const DetailCharacters = (props) => {
     const { store, actions } = useContext(Context);
     const { name } = useParams();
     useEffect(() => {
+        // console.log('se ejecuta useeffect', name);
         actions.getCharacterByName(name)//byuid? byurl
         // actions.detailPeople(url)
-    },)
+    },[])
 
     return (
         <>
 
-            {!!store.character?.name ?
+            {store.character?.name == name ?
                 (<div className='container background pt-3 mt-2 rounded'>
                     <div className="d-flex justify-content-around mb-2 container background rounded">
                         <div className='col-6'>

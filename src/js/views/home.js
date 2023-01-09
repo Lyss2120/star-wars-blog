@@ -13,7 +13,7 @@ export const Home = () => {
 		<>
 
 			<div>
-				{store.peoples.length > 0 ?
+				{store.peoples.length > 0 || store.planets.length > 0  || store.vehicles.length > 0 ?
 					(<>
 						<span className='container text-danger characterName d-flex text-start my-3 py-4 background rounded'>Characters</span>
 						<div className="container-md d-flex overflow-auto shadow-lg p-3 background rounded ">
@@ -42,7 +42,7 @@ export const Home = () => {
 
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "
-								onClick={() => actions.getCharacters(store?.pagination?.next)}>
+								onClick={() => actions.getCharacters(store?.paginationPeople?.next)}>
 								<span>NEXT</span>
 							</button>
 						</div>
@@ -51,7 +51,7 @@ export const Home = () => {
 						<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "
-								onClick={() => actions.getPlanets(store?.pagination?.previous)}>
+								onClick={() => actions.getPlanets(store?.paginationPlanets?.previous)}>
 								<span>PREV</span>
 							</button>
 							{store.planets.map((item, index) => {
@@ -69,7 +69,7 @@ export const Home = () => {
 							})}
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "
-								onClick={() => actions.getPlanets(store?.pagination?.next)}>
+								onClick={() => actions.getPlanets(store?.paginationPlanets?.next)}>
 								<span>NEXT</span>
 							</button>
 						</div>
@@ -78,7 +78,7 @@ export const Home = () => {
 						<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "
-								onClick={() => actions.getVehicles(store?.pagination?.previous)}>
+								onClick={() => actions.getVehicles(store?.paginationVehicles?.previous)}>
 								<span>PREV</span>
 							</button>
 							{store.vehicles.map((item, index) => {
@@ -97,7 +97,7 @@ export const Home = () => {
 							})}
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "
-								onClick={() => actions.getVehicles(store?.pagination?.next)}>
+								onClick={() => actions.getVehicles(store?.paginationVehicles?.next)}>
 								<span>NEXT</span>
 							</button>
 						</div>
