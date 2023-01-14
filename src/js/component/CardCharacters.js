@@ -3,7 +3,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-const CardCharacters = ({ detalles, agregarFavorito, image, name, gender, hair_color, eye_color }) => {
+const CardCharacters = ({ detalles, agregarFavorito, url, image, name, gender, hair_color, eye_color, mass }) => {
 
     return (
         <>
@@ -22,7 +22,7 @@ const CardCharacters = ({ detalles, agregarFavorito, image, name, gender, hair_c
                                 </button>
                             </Link>
                             <button href="#" className="btn btn-outline-warning "
-                                onClick={() => agregarFavorito(name)}
+                                onClick={() => agregarFavorito(name, url)}
                             >
                                 <FaRegHeart />
                             </button>

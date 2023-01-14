@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 
-const CardPlanets = ({  detalles, agregarFavorito, name, population, terrain, image }) => {
+const CardPlanets = ({  detalles, agregarFavorito, url, name, population, terrain, image }) => {
     return (
         <div className='container-fluid background mb-3' >
             <div className="card" style={{ width: '18rem' }}>
@@ -21,7 +21,7 @@ const CardPlanets = ({  detalles, agregarFavorito, name, population, terrain, im
                         </Link>
                         <button href="#" className="btn btn-outline-warning "
                             // onClick={() => actions.agregarFavorito(name)}
-                            onClick={() => agregarFavorito(name)}
+                            onClick={() => agregarFavorito(name, url)}
                         >
                             <FaRegHeart />
                         </button>

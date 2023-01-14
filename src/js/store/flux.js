@@ -72,14 +72,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				catch (error) { console.log(error) };
 			},
 
-			agregarFavorito: (name) => {
+			agregarFavorito: (name, url) => {
 				const store = getStore();
 				let found = store.favoritos.find((fav) => fav.name === name)
 				if (found) return;
-
-				setStore({ favoritos: [...store.favoritos, { name: name }] })
-
-
+				console.log('fav', name, url);
+				setStore({ favoritos: [...store.favoritos, { name: name, url: url }] })
 			},
 
 			borrarFavorito: (name) => {
@@ -92,16 +90,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getCharacterByName: async (name) => {
 				const store = getStore();
 				let foundCharacter = store?.peoples?.find((peoples) => peoples.name === name)
-				//foundCharacter es la people con el mismo name, y todas sus propiedades
-				// console.log({ foundCharacter });
-				// const response = await fetch(foundCharacter.url, {
-				// 	method: 'GET',
-				// 	headers: {
-				// 		'Content-Type': 'application/json'
-				// 	}
-				// })
-				// const data = await response.json()
-				// console.log('data charbyname',data);
 				const data = ({...foundCharacter})
 				setStore({ character: data })
 			},
@@ -111,14 +99,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log('storeplanetbyname', store);
 				let foundPlanet = store?.planets?.find((planets) => planets.name === name)
 				console.log({ foundPlanet });
-				// const response = await fetch(foundPlanet.url, {
-				// 	method: 'GET',
-				// 	headers: {
-				// 		'Content-Type': 'application/json'
-				// 	}
-				// })
-				// const data = await response.json()
-				// console.log(data);
 				const data= ({...foundPlanet})
 				setStore({ planet: data })
 			},
@@ -127,14 +107,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				let foundVehicle = store?.vehicles?.find((vehicles) => vehicles.name === name)
 				console.log({ foundVehicle });
-				// const response = await fetch(foundVehicle.url, {
-				// 	method: 'GET',
-				// 	headers: {
-				// 		'Content-Type': 'application/json'
-				// 	}
-				// })
-				// const data = await response.json()
-				// console.log(data);
 				const data = ({...foundVehicle})
 				setStore({ vehicle: data })
 			}

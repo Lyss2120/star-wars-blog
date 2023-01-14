@@ -23,27 +23,13 @@ export const Navbar = () => {
 
 						{store.favoritos.length > 0 ? (
 							store.favoritos.map((fav, i) => {
-
+							console.log('fav navbar ',fav);
 								return (
 									<div className="d-flex justify-content-between">
 										<li key={i}
 											className="text-start "
 										>
-											{
-												!!fav.gender ?
-													(<Link to={"/DetailCharacters/" + fav.name} >
-														<button className="btn p-2 ">{fav.name}</button>
-													</Link>)
-													:
-													!!fav.population ?
-														(<Link to={"/DetailPlanets/" + fav.name} >
-															<button className="btn p-2 ">{fav.name}</button>
-														</Link>)
-														:
-														(<Link to={"/DetailVehicles/" + fav.name} >
-															<button className="btn p-2 ">{fav.name}</button>
-														</Link>)
-											}
+										<button className="btn p-2 ">{fav.name}</button>
 										</li>
 										<button
 											className="btn"
@@ -57,27 +43,6 @@ export const Navbar = () => {
 							})
 						) :
 							(<li>empty</li>)}
-
-						{/* 						{store.favoritos ? (
-							store.favoritos.map((favorito) => {
-								console.log(store.favoritos, "log de nav")
-								return (	
-								//	<Link to={"/DetailCharacters/" + item.url}>
-										<li key={favorito.name} className="btn">
-											{favorito.name}
-											<button className="btn"
-												onClick={() => actions.borrarFavorito(item.name)}
-											><FaTrash /></button>
-										</li>
-									//</Link>
-								)
-							})) : (
-									<li><span className="btn" key={favs} >
-										empty
-									</span>
-									</li>
-						)} */}
-
 					</ul>
 				</div>
 			</div>

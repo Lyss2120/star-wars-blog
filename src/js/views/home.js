@@ -32,6 +32,7 @@ export const Home = () => {
 											gender={item.gender}
 											hair_color={item.hair_color}
 											eye_color={item.eye_color}
+											mass={item.mass}
 											url={item.url}
 											agregarFavorito={actions.agregarFavorito}
 											detalles={"/DetailCharacters/" + item.name}
@@ -61,6 +62,7 @@ export const Home = () => {
 										name={item.name}
 										population={item.population}
 										terrain={item.terrain}
+										url={item.url}
 										agregarFavorito={actions.agregarFavorito}
 										detalles={"/DetailPlanets/" + item.name}
 
@@ -89,6 +91,7 @@ export const Home = () => {
 										model={item.model}
 										passengers={item.passengers}
 										vehicle_class={item.vehicle_class}
+										url={item.url}
 										agregarFavorito={actions.agregarFavorito}
 										detalles={"/DetailVehicles/" + item.name}
 
@@ -106,7 +109,6 @@ export const Home = () => {
 					:
 					(
 						<>
-
 							<Cargando />
 						</>
 					)
