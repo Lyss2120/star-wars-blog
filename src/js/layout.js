@@ -6,11 +6,14 @@ import { Home } from "./views/home";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
+
 import { Footer } from "./component/footer";
 import NotFound from "./component/NotFound";
 import DetailCharacters from "./views/DetailCharacters";
 import DetailPlanets from "./views/DetailPlanets";
 import DetailVehicles from "./views/DetailVehicles";
+import { NavTwo } from "./component/hola";
+
 
 //create your first component
 const Layout = () => {
@@ -22,6 +25,7 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
+					<NavTwo />
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />

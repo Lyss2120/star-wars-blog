@@ -15,7 +15,7 @@ export const Home = () => {
 			<div>
 				{store.peoples.length > 0 || store.planets.length > 0  || store.vehicles.length > 0 ?
 					(<>
-						<span className='container text-danger characterName d-flex text-start my-3 py-4 background rounded'>Characters</span>
+						<span className='container-md characterName d-flex text-start my-3 py-4 bg-clear rounded'>Characters</span>
 						<div className="container-md d-flex overflow-auto shadow-lg p-3 background rounded ">
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "
@@ -48,7 +48,7 @@ export const Home = () => {
 							</button>
 						</div>
 
-						<span className='container text-danger characterName d-flex text-start my-3 py-4 background rounded'>Planets</span>
+						<span className='container-md text-danger characterName d-flex text-start my-3 py-4 bg-clear rounded'>Planets</span>
 						<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "
@@ -76,7 +76,7 @@ export const Home = () => {
 							</button>
 						</div>
 
-						<span className='container text-danger  characterName d-flex text-start my-3 py-4 background rounded'>Vehicles</span>
+						<span className='container-md text-danger  characterName d-flex text-start my-3 py-4 background rounded'>Vehicles</span>
 						<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "

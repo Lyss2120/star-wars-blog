@@ -5,8 +5,10 @@ body{
     background-size: 150%;
 }
 .characterName{
-    font-size: 50px;
-    font-weight: 600;
+
+    font-size: 30px;
+    color: white;
+    font-weight: 400;
 }
 .fontDetail{
     font-size: 25px;
@@ -20,7 +22,6 @@ body{
 
 }
 .favBtn:hover{
-    background: rgb(213, 55, 55)!important;
     box-shadow: 0px 0px 12px 1px rgba(226, 221, 221, 0.596);
     border: none;
 
@@ -32,17 +33,50 @@ body{
     font-size: 60px;
 }
 .navbar{
-    background-color: rgba(98, 120, 139, 0.536);
-    box-shadow: 0px 0px 12px 1px rgb(236, 236, 236);  
+    background-color: rgba(98, 120, 139, 0.171);
+    box-shadow: 0px 0px 1px 0px rgba(236, 236, 236, 0.74);  
+}
+.na{    
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    /* position: absolute; */
+    left: 0;
+    right: 0;
+    height:fit-content;
+    width: 130px;
+}
+.bg-clear{
+    background: rgba(14, 13, 13, 0.61);
+    color: rgba(250, 235, 215, 0.596);
+    border: 1px solid rgba(250, 228, 188, 0.288);
+}
+.bg-clear:hover{
+    background: rgba(14, 13, 13, 0.61);
+    color: rgba(250, 235, 215, 0.952);
+    border: 1px solid rgba(250, 228, 188, 0.288);
 }
 
+.item-clear{
+    background: rgba(8, 8, 8, 0.308);
+    color: rgba(250, 235, 215, 0.596);
+
+}
+.item-clear:hover{
+    box-shadow: 0px 0px 1px 1px rgba(236, 236, 236, 0.596);
+    background: rgba(71, 71, 71, 0.336);
+    color: rgba(250, 235, 215, 0.952);
+}
 .background:hover{
-    box-shadow: 0px 0px 12px 1px rgba(236, 236, 236, 0.596);
+    background: rgba(14, 13, 13, 0.61);
+    color: rgba(250, 235, 215, 0.952);
+    border: 1px solid rgba(250, 228, 188, 0.288);
 }
 
 .background{
-    background-color: rgba(98, 120, 139, 0.329);
-    backdrop-filter: blur(1px);
+    background: rgba(14, 13, 13, 0.61);
+    color: rgba(250, 235, 215, 0.596);
+    border: 1px solid rgba(250, 228, 188, 0.288);
 }
 .notfound, .cargando{
     background-image: url(https://images2.alphacoders.com/763/76382.jpg);
