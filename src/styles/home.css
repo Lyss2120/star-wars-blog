@@ -36,6 +36,7 @@ body{
     background-color: rgba(98, 120, 139, 0.171);
     box-shadow: 0px 0px 1px 0px rgba(236, 236, 236, 0.74);  
 }
+/* logo starwars .na */
 .na{    
     display: flex;
     justify-content: center;
@@ -67,6 +68,42 @@ body{
     background: rgba(71, 71, 71, 0.336);
     color: rgba(250, 235, 215, 0.952);
 }
+.link-clear{
+    color: rgba(252, 252, 252, 0.781);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.link-clear:hover{
+    color: rgba(250, 235, 215, 0.952);
+}
+
+.link-clear:hover{
+    color: rgba(250, 235, 215, 0.952);
+
+}
+.link-clear:hover:before{
+    content: '';
+    bottom: 0;
+    height: 2px;
+    width: 6rem;
+    text-align: center;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 4px 1px #fade4b;
+    border-radius: 4px;
+    position: absolute;
+    /* transition: 7s;   no funcionnnaaaa */
+}
+.underline-link::before{
+    content: '';
+    bottom: 0;
+    height: 2px;
+    width: 6rem;
+    text-align: center;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 4px 1px #fade4b;
+    border-radius: 4px;
+    position: absolute;
+}
 .background:hover{
     background: rgba(14, 13, 13, 0.61);
     color: rgba(250, 235, 215, 0.952);
@@ -74,10 +111,14 @@ body{
 }
 
 .background{
-    background: rgba(14, 13, 13, 0.61);
+    background: rgba(67, 67, 68, 0.178);
     color: rgba(250, 235, 215, 0.596);
     border: 1px solid rgba(250, 228, 188, 0.288);
 }
+/* .nav-btn{
+   
+} */
+
 .notfound, .cargando{
     background-image: url(https://images2.alphacoders.com/763/76382.jpg);
     height: 100vh;

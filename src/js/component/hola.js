@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/Star-Wars-Logo-Transparent-Image.png"
+import logo from "../../img/Star-Wars-Logo-Transparent-Image.png";
+import { AiOutlineUser } from "react-icons/ai";
 
 export const NavTwo = () => {
 
@@ -10,7 +11,7 @@ export const NavTwo = () => {
 				<div className="d-flex flex-row">
 					<Link to={'/'} >
 						<button href="#" className="btn bg-clear">
-							SIGN IN
+							OTRA COSA
 						</button>
 					</Link>
 				</div>
@@ -22,7 +23,8 @@ export const NavTwo = () => {
 				<div className="d-flex flex-row">
 					<Link to={'/'} >
 						<button href="#" className="btn bg-clear">
-							SIGN IN
+						<AiOutlineUser />
+							<span className="m-2">SIGN IN</span>
 						</button>
 					</Link>
 				</div>
