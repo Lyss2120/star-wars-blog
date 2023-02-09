@@ -11,12 +11,12 @@ export const Navbar = () => {
 
 	return (
 		<>
-			<nav className="navbar navbar-light">
-				<div className="container text-center my-1">
-					<div ><button className="btn btn-sm"><Link to="/" className="text-decoration-none link-clear">Characters</Link></button></div>
-					<div ><button className="btn btn-sm"><Link to="/" className="text-decoration-none link-clear ">Planets</Link></button></div>
-					<div ><button className="btn btn-sm"><Link to="/" className="text-decoration-none link-clear">Vehicles</Link></button></div>
-					<div ><button className="btn btn-sm"><Link to="/" className="text-decoration-none link-clear">Add yours</Link></button></div>
+			<nav className="navbar navtwo navbar-light">
+				<div className="container text-center ">
+					<div ><button className="btn btn-sm  "><Link to="/" className="text-decoration-none link-clear ">Characters</Link></button></div>
+					<div ><button className="btn btn-sm  "><Link to="/" className="text-decoration-none link-clear ">Planets</Link></button></div>
+					<div ><button className="btn btn-sm  "><Link to="/" className="text-decoration-none link-clear">Vehicles</Link></button></div>
+					<div ><button className="btn btn-sm  "><Link to="/" className="text-decoration-none link-clear">Add yours</Link></button></div>
 						<div /*className="dropdown "*/>
 							<button className="btn btn-sm link-clear dropdown-toggle " type="button" data-bs-toggle="dropdown" >
 								Favoritos

@@ -7,10 +7,10 @@ const CardCharacters = ({ detalles, agregarFavorito, url, image, name, gender, h
 
     return (
         <>
-            <div className='container-fluid background mb-3' >
-                <div className="card" style={{ width: '18rem' }}>
+            <div className='container-fluid  mb-3 ' >
+                <div className="card border border-0" style={{ width: '16rem' }}>
                     <img src={image} className="card-img-top" alt="..." />
-                    <div className="card-body text-start">
+                    <div className="card-body bg-dark text-start">
                         <h4 className="card-title py-2">{name}</h4>
                         <p className='m-0 '>Gender : {gender}</p>
                         <p className='m-0 '>Hair color : {hair_color}</p>

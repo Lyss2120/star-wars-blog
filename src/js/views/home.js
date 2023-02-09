@@ -5,6 +5,7 @@ import CardPlanets from "../component/CardPlanets";
 import CardVehicles from "../component/CardVehicles";
 import "../../styles/home.css";
 import Cargando from "../component/cargando";
+import CharHome from "../component/CharHome";
 
 
 export const Home = () => {
@@ -15,7 +16,10 @@ export const Home = () => {
 			<div>
 				{store.peoples.length > 0 || store.planets.length > 0  || store.vehicles.length > 0 ?
 					(<>
-						<span className='container-md characterName d-flex text-start my-3 py-4 bg-clear rounded'>Characters</span>
+
+<CharHome />
+					
+						<span className='container-md characterName d-flex text-start my-3 py-4 bg-clear rounded text-uppercase'>Characters</span>
 						<div className="container-md d-flex overflow-auto shadow-lg p-3 background rounded ">
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "
@@ -48,7 +52,7 @@ export const Home = () => {
 							</button>
 						</div>
 
-						<span className='container-md text-danger characterName d-flex text-start my-3 py-4 bg-clear rounded'>Planets</span>
+						<span className='container-md characterName d-flex text-start my-3 py-4 bg-clear rounded text-uppercase'>Planets</span>
 						<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "
@@ -76,7 +80,7 @@ export const Home = () => {
 							</button>
 						</div>
 
-						<span className='container-md text-danger  characterName d-flex text-start my-3 py-4 background rounded'>Vehicles</span>
+						<span className='container-md characterName d-flex text-start my-3 py-4 background rounded text-uppercase'>Vehicles</span>
 						<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
 							<button
 								className="btn btn-dark shadow-lg mb-3 background text-light "

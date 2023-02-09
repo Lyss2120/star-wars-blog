@@ -7,10 +7,10 @@ import PropTypes from 'prop-types';
 const CardVehicles = ({ detalles, agregarFavorito, url, name, model, passengers, vehicle_class, image }) => {
     return (
         <>
-            <div className='container-fluid background mb-3' >
-                <div className="card" style={{ width: '18rem' }}>
-                    <img src={image} className="card-img-top" alt="..." />
-                    <div className="card-body text-start">
+            <div className='container-fluid  mb-3' >
+                <div className="card border border-0" style={{ width: '18rem' }}>
+                    <img src={image} className="card-img-top " alt="..." />
+                    <div className="card-body bg-dark text-start">
                         <h5 className="card-title py-2">{name}</h5>
                         <p className="m-0 ">Model: {model}</p>
                         <p className="m-0 ">Passengers: {passengers}</p>
