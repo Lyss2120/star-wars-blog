@@ -99,7 +99,14 @@ body{
 .link-clear:hover{
     color: rgba(247, 232, 212, 0.952);
 }
-
+.clear-header{
+    color: rgba(252, 252, 252, 0.781);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.clear-header:hover{
+    color: rgba(247, 232, 212, 0.952);
+}
 .light-underline:hover:before{
     content: '';
     bottom: 0;

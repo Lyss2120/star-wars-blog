@@ -7,44 +7,43 @@ const CardCharacters = ({ detalles, agregarFavorito, url, image, name, gender, h
 
     return (
         <>
-                        <div className="caja1.1 my-3 col-sm-4">
-                            <div className="card mb-3 bg-dark test">
-                                <img src='https://lumiere-a.akamaihd.net/v1/images/dee-bradley-baker-bbs2-interview2-featured_3e92ac3b.jpeg?region=0,0,1536,864&width=600' className="card-img-top" alt="card" />
-                                <div className="card-body ">
-                                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                                        <div class="accordion-item bg-clear text-light">
-                                            <h2 class="accordion-header " id="flush-headingOne">
-                                                <button class="accordion-button collapsed bg-dark light-underline" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                                    <span className='link-clear '>name</span>
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body">
-                                                    <p className=' link-clear'>Gender :</p>
-                                                    <p className=' link-clear'>Hair color : </p>
-                                                    <p className=' link-clear'>Eye color : </p>
-                                                </div>
-                                            </div>
-                                        </div>
+            <div className="caja1.1 my-3 col-sm-4">
+                <div className="card mb-3 bg-dark test">
+                    <img src='https://lumiere-a.akamaihd.net/v1/images/dee-bradley-baker-bbs2-interview2-featured_3e92ac3b.jpeg?region=0,0,1536,864&width=600' className="card-img-top" alt="card" />
+                    <div className="">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item bg-clear text-light">
+                                <h2 class="accordion-header " id="flush-headingOne">
+                                    <button class="accordion-button collapsed bg-dark light-underline" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        <span className='link-clear '>{name}</span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <p className='m-0 text-start'>Gender : {gender}</p>
+                                        <p className='m-0 text-start'>Hair color : {hair_color}</p>
+                                        <p className='m-0 text-start'>Eye color : {eye_color}</p>
                                     </div>
-                                    <div className="d-flex justify-content-between ">
-                                        <Link to={detalles} key={name}>
-                                            <button href="#" className="btn btn-sm btn-dark">
-                                                Learn more!
-                                            </button>
-                                        </Link>
-                                        <button href="#" className="btn btn-sm btn-dark"
-                                            onClick={() => agregarFavorito(name, url)}
-                                        >
-                                            <FaRegHeart />
-                                        </button>
-                                    </div>
-
                                 </div>
                             </div>
-
                         </div>
-        
+                        <div className="d-flex justify-content-between ">
+                            <Link to={detalles} key={name}>
+                                <button href="#" className="btn btn-sm btn-dark">
+                                    Learn more!
+                                </button>
+                            </Link>
+                            <button href="#" className="btn btn-sm btn-dark"
+                                onClick={() => agregarFavorito(name, url)}
+                            >
+                                <FaRegHeart />
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
 
 
 

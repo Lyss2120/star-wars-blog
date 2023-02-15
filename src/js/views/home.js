@@ -19,29 +19,22 @@ export const Home = () => {
 					(<>
 
 						<CharHome />
-						<VehHome />
+						<div className="container-md d-flex justify-content-between bg-clear my-3 py-4 ">
+							<span className='characterName text-uppercase clear-header'>Characters</span>
+							<nav className=" " aria-label="Page navigation example">
+								<ul class="pagination">
+									{store?.paginationPeople?.previous && // si previous es distinto de null se muestra
+										<li class="page-item">
+											<a class="page-link bg-dark text-light" onClick={() => actions.getCharacters(store?.pagination?.previous)} aria-label="Previous">
+												<span aria-hidden="true">prev</span>
+											</a>
+										</li>
+									}
+								</ul>
+							</nav>
+						</div>
 
-						<span className='container-md characterName d-flex text-start my-3 py-4 bg-clear rounded text-uppercase'>Characters</span>
-						<nav className="d-flex justify-content-center" aria-label="Page navigation example">
-							<ul class="pagination">
-								{store?.paginationPeople?.previous && // si previous es distinto de null se muestra
-									<li class="page-item">
-										<a class="page-link bg-dark text-light" onClick={() => actions.getCharacters(store?.pagination?.previous)} aria-label="Previous">
-											<span aria-hidden="true">prev</span>
-										</a>
-									</li>
-								}
-								{store?.paginationPeople?.next && // si next es distinto de null se muestra
-									<li class="page-item">
-										<a class="page-link bg-dark text-light" href="#" aria-label="Next" onClick={() => actions.getCharacters(store?.paginationPeople?.next)}>
-											<span aria-hidden="true">next</span>
-										</a>
-									</li>
-								}
-							</ul>
-						</nav>
-
-						<div className="container-md text-center">
+						<div className="container-md text-center ">
 							<div className="row">
 								{
 									store.peoples?.map((item, index) => {
@@ -61,7 +54,27 @@ export const Home = () => {
 										);
 									})
 								}
+								
 							</div>
+						
+							<nav className="" aria-label="Page navigation example">
+								<ul class="pagination">
+									{store?.paginationPeople?.previous && // si previous es distinto de null se muestra
+										<li class="page-item">
+											<a class="page-link bg-dark text-light" onClick={() => actions.getCharacters(store?.pagination?.previous)} aria-label="Previous">
+												<span aria-hidden="true">prev</span>
+											</a>
+										</li>
+									}
+									{store?.paginationPeople?.next && // si next es distinto de null se muestra
+										<li class="page-item">
+											<a class="page-link bg-dark text-light" href="#" aria-label="Next" onClick={() => actions.getCharacters(store?.paginationPeople?.next)}>
+												<span aria-hidden="true">next</span>
+											</a>
+										</li>
+									}
+								</ul>
+							</nav>
 
 						</div>
 
