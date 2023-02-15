@@ -97,35 +97,50 @@ body{
     font-size: small;
 }
 .link-clear:hover{
-    color: rgba(250, 235, 215, 0.952);
+    color: rgba(247, 232, 212, 0.952);
 }
 
-.link-clear:hover{
-    color: rgba(250, 235, 215, 0.952);
-
-}
-.link-clear:hover:before{
+.light-underline:hover:before{
     content: '';
     bottom: 0;
-    height: 2px;
-    width: 6rem;
-    text-align: center;
+    height: 1px;
+    width: 50px;
     background-color: #f8f8f8;
     box-shadow: 0px 0px 4px 1px #fade4b;
     border-radius: 4px;
     position: absolute;
-    /* transition: 7s;   no funcionnnaaaa */
+    
 }
-.underline-link::before{
-    content: '';
-    bottom: 0;
-    height: 2px;
-    width: 6rem;
-    text-align: center;
-    background-color: #f8f8f8;
-    box-shadow: 0px 0px 4px 1px #fade4b;
-    border-radius: 4px;
+
+.card{
+    border: none !important;
+}
+.test::before, .test::after{
+    content: "";
+    left: 0;
+    border-right: 14px solid transparent;
+    width: 18%;
+    bottom: -14px;
+    border-top: 19px solid #212529;
+    display: block;
     position: absolute;
+    z-index: -1;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 24px;
+}
+ /* test after, es necesario ponerlo 2 veces */
+.test::after {
+    left: initial;
+    right: 0;
+    border-right: none;
+    border-left: 14px solid transparent;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 8px;
+}
+.test::before{
+    left: 0;
+    border-right: 12px solid transparent;
+    width: 63%;
 }
 .background:hover{
     background: rgba(14, 13, 13, 0.61);
@@ -155,4 +170,10 @@ body{
 }
 .cargando{
     box-shadow: 0px 0px 12px 1px rgba(236, 236, 236, 0.596);  
+}
+.accordion-button{
+    color: white !important;
+}
+.clear-icon{
+    text-shadow: #f8f8f8;
 }

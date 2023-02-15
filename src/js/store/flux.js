@@ -109,7 +109,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log({ foundVehicle });
 				const data = ({...foundVehicle})
 				setStore({ vehicle: data })
-			}
+			},
+
+			getRandomChar: () => {
+				const { peoples } = getStore();
+				for (let i = 0; i < 4; i++) {
+					let RandomFour=[];
+					let random = Math.floor(Math.random() * peoples?.lenght) + 1;
+					RandomFour.push(random)
+					console.log({RandomFour})
+					return RandomFour;
+			   }//cada vez que se repita el ciclo enviará un randomnumber a data, ese array se retorna al final con 4 randomnumbers
+			   setStore({ FourRandomChar: RandomFour })
+			   console.log('fkla', RandomFour)
+
+			},					
+
+
+
+
+			
 		}
 	};
 }

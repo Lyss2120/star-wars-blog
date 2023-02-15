@@ -13,12 +13,12 @@ export const Navbar = () => {
 		<>
 			<nav className="navbar navtwo navbar-light">
 				<div className="container text-center ">
-					<div ><button className="btn btn-sm  "><Link to="/" className="text-decoration-none link-clear ">Characters</Link></button></div>
-					<div ><button className="btn btn-sm  "><Link to="/" className="text-decoration-none link-clear ">Planets</Link></button></div>
-					<div ><button className="btn btn-sm  "><Link to="/" className="text-decoration-none link-clear">Vehicles</Link></button></div>
-					<div ><button className="btn btn-sm  "><Link to="/" className="text-decoration-none link-clear">Add yours</Link></button></div>
+					<div ><button className="btn btn-sm light-underline"><Link to="/" className="text-decoration-none"><span className="link-clear ">Characters</span> </Link></button></div>
+					<div ><button className="btn btn-sm light-underline"><Link to="/" className="text-decoration-none"><span className="link-clear">Planets</span></Link></button></div>
+					<div ><button className="btn btn-sm light-underline"><Link to="/" className="text-decoration-none"><span className="link-clear">Vehicles</span></Link></button></div>
+					<div ><button className="btn btn-sm light-underline"><Link to="/" className="text-decoration-none  link-clear">Add yours</Link></button></div>
 						<div /*className="dropdown "*/>
-							<button className="btn btn-sm link-clear dropdown-toggle " type="button" data-bs-toggle="dropdown" >
+							<button className="btn btn-sm light-underline link-clear dropdown-toggle " type="button" data-bs-toggle="dropdown" >
 								Favoritos
 								{store.favoritos.length != 0 &&
 
