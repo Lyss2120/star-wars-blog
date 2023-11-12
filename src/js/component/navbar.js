@@ -26,7 +26,6 @@ export const Navbar = () => {
 								}
 							</button>
 							<ul className="dropdown-menu dropdown-menu-end bg-clear ">
-
 								{store.favoritos.length > 0 ? (
 									store.favoritos.map((fav, i) => {
 										console.log('fav navbar ', fav);

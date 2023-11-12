@@ -11,15 +11,15 @@ const CardCharacters = ({ detalles, agregarFavorito, url, image, name, gender, h
                 <div className="card mb-3 bg-dark test">
                     <img src='https://lumiere-a.akamaihd.net/v1/images/dee-bradley-baker-bbs2-interview2-featured_3e92ac3b.jpeg?region=0,0,1536,864&width=600' className="card-img-top" alt="card" />
                     <div className="">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item bg-clear text-light">
-                                <h2 class="accordion-header " id="flush-headingOne">
-                                    <button class="accordion-button collapsed bg-dark light-underline" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <div className="accordion accordion-flush" id="accordionFlushExample">
+                            <div className="accordion-item bg-clear text-light">
+                                <h2 className="accordion-header " id="flush-headingOne">
+                                    <button className="accordion-button collapsed bg-dark light-underline" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                         <span className='link-clear '>{name}</span>
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
+                                <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div className="accordion-body">
                                         <p className='m-0 text-start'>Gender : {gender}</p>
                                         <p className='m-0 text-start'>Hair color : {hair_color}</p>
                                         <p className='m-0 text-start'>Eye color : {eye_color}</p>

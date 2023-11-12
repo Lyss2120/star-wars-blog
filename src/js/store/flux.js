@@ -13,13 +13,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			character: null,
 			planet: null,
 			vehicle: null,
-			RandomFour:[]
+			RandomFour:[],
+			peopleCount:0,
+			planetsCount:0,
+			vehiclesCount:0
+
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 
 			//1° fetch para sacr el url de cada personaje
 			getCharacters: async (url) => {
+				const store = getStore();
+
 				try {
 					const res = await fetch(url, {
 						method: 'GET',
@@ -29,8 +35,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					const data = await res.json()
 					console.log({ data });
-					setStore({ peoples: data.results });
-					setStore({ paginationPeople: data });
+					setStore({ peoples: data.results, paginationPeople: data, peopleCount: data.count });
+					// setStore({ paginationPeople: data, peoplesCount: data.count });
 					return true
 				}
 				
@@ -38,6 +44,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getPlanets: async (url) => {
+				const store = getStore();
+
 				try {
 					const res = await fetch(url, {
 						method: 'GET',
@@ -47,8 +55,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					const data = await res.json()
 					console.log({ data });
-					setStore({ planets: data.results });
-					setStore({ paginationPlanets: data });
+					setStore({ planets: data.results, paginationPlanets: data, planetsCount: data.count });
+					// setStore({ paginationPlanets: data, planetsCount: data.count  });
 					return true
 				}
 				
@@ -56,6 +64,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 			getVehicles: async (url) => {
+				const store = getStore();
+
 				try {
 					const res = await fetch(url, {
 						method: 'GET',
@@ -65,8 +75,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					const data = await res.json()
 					console.log({ data });
-					setStore({ vehicles: data.results });
-					setStore({ paginationVehicles: data });
+					setStore({ vehicles: data.results, paginationVehicles: data, vehiclesCount: data.count });
+					// setStore({ paginationVehicles: data });
+					console.log('guugugugu',store.vehicles, store.paginationVehicles, 'count',store.vehiclesCount);
 					return true
 				}
 				
@@ -111,20 +122,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = ({...foundVehicle})
 				setStore({ vehicle: data })
 			},
-
-			getRandomChar: () => {
-				const { peoples } = getStore();
+			randomNumber:(num)=>{
+				let random = Math.floor(Math.random() * num) + 1;
+				return random
+			},
+			getRandomChar: async () => {
+				const store = getStore();
+				const {peoples, planets, peopleCount, paginationPeople} = store 
 				let RandomFour = [];
+				let random
+
 				for (let i = 0; i < 4; i++) {
-					let indexes = peoples?.lenght - 1;
-					let random = Math.floor(Math.random() * indexes) + 1;
+					random = getActions().randomNumber(peopleCount) 
 					RandomFour.push(random)
-					console.log({ RandomFour })
+					console.log({random})
 				}
-				setStore({ RandomFour: RandomFour })// es un array con 4 numeros , de aqui tienen que salir 4 personajes segun su index en characters
+				// setStore({ RandomFour: RandomFour })
+				// es un array con 4 numeros , de aqui tienen que salir 4 personajes segun su index en characters
 			//	  cada vez que se repita el ciclo enviará un randomnumber a RandomFour, ese array se retorna al final con 4 randomnumbers
 			//    setStore({ FourRandomChar: RandomFour })
-			//    console.log('fkla', RandomFour)
+			
+			    console.log({RandomFour})
+				
 
 			},					
 

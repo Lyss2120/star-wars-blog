@@ -6,23 +6,25 @@ import { useContext } from "react";
 
 const CharHome = (props) => {
     const { store, actions } = useContext(Context);
+
     useEffect(() => {
         // console.log('se ejecuta useeffect', name);
+        store.peoples && store.planets && store.vehicles ?
         actions.getRandomChar()
+        : null
         // actions.detailPeople(url)
-    },[])
+    }, [store.peoples])
 
 
-    
 
     return (
         <>
-        {}
+            { }
             <div className=' container my-3' >
                 <div className='mx-3 fs-4 text-uppercase '>Random Five</div>
                 <div className="d-flex justify-content-around ">
 
-                    <div className="caja1 col-6">
+                    <div className="caja1 col-6 me-3">
                         <div className="bg-clear caja1.1 my-3">
                             <div className="card mb-3 bg-dark test">
                                 <img src='https://lumiere-a.akamaihd.net/v1/images/dee-bradley-baker-bbs2-interview2-featured_3e92ac3b.jpeg?region=0,0,1536,864&width=600' className="card-img-top" alt="card" />
@@ -35,6 +37,14 @@ const CharHome = (props) => {
                     </div>
 
                     <div className="caja2 d-flex flex-column justify-content-around">
+                        {/* {store.RandomFour?.map((item, index) => {
+                            return(
+                                index >= 1 ?
+                                <RandomFiveCard name={item.name} index={index} />
+                                : null
+                            )
+                         })} */}
+
                         <div className="card bg-dark bg-clear" style={{ maxWidth: '540px' }}>
                             <div className="row g-0 ">
                                 <div className="col-md-4">
@@ -42,7 +52,7 @@ const CharHome = (props) => {
                                 </div>
                                 <div className="col-md-8 test">
                                     <div className="card-body">
-                                        <h5 className="card-title">Name</h5>
+                                        <h5 className="card-title">randomChar[i].name</h5>
                                     </div>
                                 </div>
                             </div>

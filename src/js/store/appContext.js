@@ -34,7 +34,7 @@ const injectContext = PassedComponent => {
 			 state.actions.getCharacters('https://swapi.dev/api/people/');
 			 state.actions.getPlanets('https://swapi.dev/api/planets/');
 			 state.actions.getVehicles('https://swapi.dev/api/vehicles/');
-			 state.actions.getRandomChar();
+			//  state.actions.getRandomChar();
 
 
 		}, []);
