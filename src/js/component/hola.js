@@ -10,7 +10,7 @@ export const NavTwo = () => {
 			<nav className="navbar ">
 				<div className="d-flex flex-row">
 					<Link to={'/'} >
-						<button href="#" className="btn btn-clear btn-sm">
+						<button href="#" className="btn btn-clear ">
 							<AiOutlineSearch />
 							<span className="m-2">SEARCH</span>
 						</button>
@@ -23,7 +23,7 @@ export const NavTwo = () => {
 				</div>
 				<div className="d-flex flex-row">
 					<Link to={'/'} >
-						<button href="#" className="btn btn-clear  btn-sm">
+						<button href="#" className="btn btn-clear ">
 						<AiOutlineUser />
 							<span className="m-2">SIGN IN</span>
 						</button>

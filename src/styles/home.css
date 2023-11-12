@@ -171,7 +171,7 @@ body{
 } */
 
 .notfound, .cargando{
-    background-image: url(https://images2.alphacoders.com/763/76382.jpg);
+    background-image: url(https://images3.alphacoders.com/114/11439.png);
     height: 100vh;
     
 }
@@ -183,4 +183,7 @@ body{
 }
 .clear-icon{
     text-shadow: #f8f8f8;
+}
+.notfound{
+font-size: 4em;
 }

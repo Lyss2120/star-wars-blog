@@ -13,6 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			character: null,
 			planet: null,
 			vehicle: null,
+			RandomFour:[]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -113,15 +114,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getRandomChar: () => {
 				const { peoples } = getStore();
+				let RandomFour = [];
 				for (let i = 0; i < 4; i++) {
-					let RandomFour=[];
-					let random = Math.floor(Math.random() * peoples?.lenght) + 1;
+					let indexes = peoples?.lenght - 1;
+					let random = Math.floor(Math.random() * indexes) + 1;
 					RandomFour.push(random)
-					console.log({RandomFour})
-					return RandomFour;
-			   }//cada vez que se repita el ciclo enviará un randomnumber a data, ese array se retorna al final con 4 randomnumbers
-			   setStore({ FourRandomChar: RandomFour })
-			   console.log('fkla', RandomFour)
+					console.log({ RandomFour })
+				}
+				setStore({ RandomFour: RandomFour })// es un array con 4 numeros , de aqui tienen que salir 4 personajes segun su index en characters
+			//	  cada vez que se repita el ciclo enviará un randomnumber a RandomFour, ese array se retorna al final con 4 randomnumbers
+			//    setStore({ FourRandomChar: RandomFour })
+			//    console.log('fkla', RandomFour)
 
 			},					
 

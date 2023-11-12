@@ -19,8 +19,8 @@ export const Home = () => {
 					(<>
 
 						<CharHome />
-						<div className="container-md d-flex justify-content-between bg-clear my-3 py-4 ">
-							<span className='characterName text-uppercase clear-header'>Characters</span>
+						<div className="container-md d-flex justify-content-between py-3 ">
+							<span className='mx-3 fs-4 text-uppercase '>Characters</span>
 							<nav className=" " aria-label="Page navigation example">
 								<ul class="pagination">
 									{store?.paginationPeople?.previous && // si previous es distinto de null se muestra

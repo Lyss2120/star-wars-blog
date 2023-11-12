@@ -7,7 +7,7 @@ const CardCharacters = ({ detalles, agregarFavorito, url, image, name, gender, h
 
     return (
         <>
-            <div className="caja1.1 my-3 col-sm-4">
+            <div className="caja1.1 my-3 col-sm-3">
                 <div className="card mb-3 bg-dark test">
                     <img src='https://lumiere-a.akamaihd.net/v1/images/dee-bradley-baker-bbs2-interview2-featured_3e92ac3b.jpeg?region=0,0,1536,864&width=600' className="card-img-top" alt="card" />
                     <div className="">

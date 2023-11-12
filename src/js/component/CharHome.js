@@ -19,7 +19,7 @@ const CharHome = (props) => {
         <>
         {}
             <div className=' container my-3' >
-                <div className='mx-3 fs-4 text-uppercase '>charhome</div>
+                <div className='mx-3 fs-4 text-uppercase '>Random Five</div>
                 <div className="d-flex justify-content-around ">
 
                     <div className="caja1 col-6">

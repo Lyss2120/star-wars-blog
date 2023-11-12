@@ -4,10 +4,12 @@ import notfound from '../../img/404.webp'
 const NotFound = () => {
     return (
         <div className="notfound">
-            <h1 className='mt-2 texto2 fw-bold text-white p-5 m-5'>NOT FOUND!!</h1>
-            <h3 className='mt-2 px-5 m-5'>This is not the page that you're looking for...</h3>
-            <h1 className='d-flex justify-content-center'>MOVE ALONG...</h1>
-            <h1 className='d-flex justify-content-center'>MOVE ALONG...</h1>
+            {/* <img src={notfound} alt="notfound" /> */}
+            <span className='px-5 notfound fw-bold text-white'>404</span>
+            <span className='texto2 fw-bold text-white'>NOT FOUND!!</span>
+            <div className='mt-2 px-5 text-white'>This is not the page that you're looking for...</div>
+            {/* <h1 className='d-flex justify-content-center'>MOVE ALONG...</h1>
+            <h1 className='d-flex justify-content-center'>MOVE ALONG...</h1> */}
         </div>
 
     )
