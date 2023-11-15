@@ -187,3 +187,6 @@ body{
 .notfound{
 font-size: 4em;
 }
+.detail-img{
+    object-fit: cover;
+}

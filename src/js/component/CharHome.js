@@ -9,8 +9,9 @@ const CharHome = (props) => {
 
     useEffect(() => {
         // console.log('se ejecuta useeffect', name);
+        let aver
         store.peoples && store.planets && store.vehicles ?
-        actions.getRandomChar()
+       aver=actions.getCharacters(`https://swapi.dev/api/people/${store.randomNumber}`)
         : null
         // actions.detailPeople(url)
     }, [store.peoples])
@@ -52,7 +53,7 @@ const CharHome = (props) => {
                                 </div>
                                 <div className="col-md-8 test">
                                     <div className="card-body">
-                                        <h5 className="card-title">randomChar[i].name</h5>
+                                        <h5 className="card-title">store.RandomFour[0].name</h5>
                                     </div>
                                 </div>
                             </div>

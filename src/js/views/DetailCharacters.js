@@ -18,10 +18,9 @@ const DetailCharacters = (props) => {
 
             {store.character?.name == name ?
                 (<div className='container background pt-3 mt-2 rounded'>
-                    <div className="d-flex justify-content-around mb-2 container background rounded">
-                        <div className='col-6'>
-                            <img src={props.image} alt="" className='img-fluid' />
-                        </div>
+                    
+                    <div className="d-flex justify-content-between mb-2  background rounded">
+                        <img src={props.image} alt="" className='col-6 detail-img flex-shrink-1' />
                         <div className='col-6 px-3'>
                             <span className='text-danger characterName d-flex text-start my-4'>{store?.character?.name}</span>
                             <p className='texto fs-4'> {store?.description}</p>

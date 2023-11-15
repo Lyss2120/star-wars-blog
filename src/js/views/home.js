@@ -11,6 +11,8 @@ import VehHome from "../component/VehHome";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+
+
 	return (
 		<>
 
@@ -22,7 +24,7 @@ export const Home = () => {
 							<span className='mx-3 fs-4 text-uppercase '>Characters</span>
 							<nav className=" " aria-label="Page navigation example">
 								<ul className="pagination">
-									{store?.paginationPeople?.previous && // si previous es distinto de null se muestra
+									{ 	store?.paginationPeople?.previous && // si previous es distinto de null se muestra
 										<li className="page-item">
 											<a className="page-link bg-dark text-light" 
 											onClick={() => actions.getCharacters(store?.pagination?.previous)} 
@@ -60,14 +62,14 @@ export const Home = () => {
 						
 							<nav className="" aria-label="Page navigation example">
 								<ul className="pagination">
-									{store?.paginationPeople?.previous && // si previous es distinto de null se muestra
+									{store?.paginationPeople?.previous && // si previous es distinto de null se muestra people prev
 										<li className="page-item">
 											<a className="page-link bg-dark text-light" onClick={() => actions.getCharacters(store?.pagination?.previous)} aria-label="Previous">
 												<span aria-hidden="true">prev</span>
 											</a>
 										</li>
 									}
-									{store?.paginationPeople?.next && // si next es distinto de null se muestra
+									{store?.paginationPeople?.next && // si next es distinto de null se muestra people next
 										<li className="page-item">
 											<a className="page-link bg-dark text-light" href="#" aria-label="Next" onClick={() => actions.getCharacters(store?.paginationPeople?.next)}>
 												<span aria-hidden="true">next</span>

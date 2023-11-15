@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planet: null,
 			vehicle: null,
 			RandomFour:[],
+			randomNumber: Math.floor(Math.random() * num) + 1,
 			peopleCount:0,
 			planetsCount:0,
 			vehiclesCount:0
@@ -120,31 +121,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let foundVehicle = store?.vehicles?.find((vehicles) => vehicles.name === name)
 				console.log({ foundVehicle });
 				const data = ({...foundVehicle})
+				console.log(data);
 				setStore({ vehicle: data })
 			},
-			randomNumber:(num)=>{
+			randomNumber: (num)=>{
 				let random = Math.floor(Math.random() * num) + 1;
 				return random
 			},
-			getRandomChar: async () => {
+			getRandomChar: () => {
 				const store = getStore();
 				const {peoples, planets, peopleCount, paginationPeople} = store 
 				let RandomFour = [];
-				let random
+				let random, que
 
 				for (let i = 0; i < 4; i++) {
-					random = getActions().randomNumber(peopleCount) 
+					random = getActions().randomNumber(10)  
 					RandomFour.push(random)
-					console.log({random})
 				}
-				// setStore({ RandomFour: RandomFour })
+				for (let i = 0; i < RandomFour.length; i++) {
+					let element = RandomFour[i];//numeo de id que[0]
+					que = peoples[element].name
+										// console.log(que, {element})
+				}
+				 setStore({ RandomFour: RandomFour })
 				// es un array con 4 numeros , de aqui tienen que salir 4 personajes segun su index en characters
-			//	  cada vez que se repita el ciclo enviará un randomnumber a RandomFour, ese array se retorna al final con 4 randomnumbers
-			//    setStore({ FourRandomChar: RandomFour })
-			
-			    console.log({RandomFour})
-				
-
+			    // console.log({RandomFour},'HOLA', {que})
 			},					
 
 
