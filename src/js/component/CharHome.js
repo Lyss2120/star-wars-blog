@@ -17,7 +17,6 @@ const CharHome = (props) => {
     }, [store.peoples])
 
 
-
     return (
         <>
             { }
