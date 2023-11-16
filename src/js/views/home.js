@@ -11,6 +11,8 @@ import VehHome from "../component/VehHome";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	// const { peoples, planets, vehicles } = store
+	// console.log(peoples, planets, vehicles);
 
 
 	return (

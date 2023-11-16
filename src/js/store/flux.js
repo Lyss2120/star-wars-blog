@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planet: null,
 			vehicle: null,
 			RandomFour:[],
-			randomNumber: Math.floor(Math.random() * num) + 1,
+			randomNumber: 0,
 			peopleCount:0,
 			planetsCount:0,
 			vehiclesCount:0
@@ -124,29 +124,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(data);
 				setStore({ vehicle: data })
 			},
-			randomNumber: (num)=>{
-				let random = Math.floor(Math.random() * num) + 1;
-				return random
-			},
-			getRandomChar: () => {
-				const store = getStore();
-				const {peoples, planets, peopleCount, paginationPeople} = store 
-				let RandomFour = [];
-				let random, que
+			// randomNumber: (num)=>{
+			// 	let random = Math.floor(Math.random() * num) + 1;
+			// 	return random
+			// },
+			// getRandomChar: () => {
+			// 	const store = getStore();
+			// 	const {peoples, planets, peopleCount, paginationPeople} = store 
+			// 	let RandomFour = [];
+			// 	let random, que
 
-				for (let i = 0; i < 4; i++) {
-					random = getActions().randomNumber(10)  
-					RandomFour.push(random)
-				}
-				for (let i = 0; i < RandomFour.length; i++) {
-					let element = RandomFour[i];//numeo de id que[0]
-					que = peoples[element].name
-										// console.log(que, {element})
-				}
-				 setStore({ RandomFour: RandomFour })
-				// es un array con 4 numeros , de aqui tienen que salir 4 personajes segun su index en characters
-			    // console.log({RandomFour},'HOLA', {que})
-			},					
+			// 	for (let i = 0; i < 4; i++) {
+			// 		random = getActions().randomNumber(10)  
+			// 		RandomFour.push(random)
+			// 	}
+			// 	for (let i = 0; i < RandomFour.length; i++) {
+			// 		let element = RandomFour[i];//numeo de id que[0]
+			// 		// que = peoples[4].name
+			// 		// 					 console.log(que, {element})
+			// 	}
+			// 	 setStore({ RandomFour: RandomFour })
+			// 	// es un array con 4 numeros , de aqui tienen que salir 4 personajes segun su index en characters
+			//     // console.log({RandomFour},'HOLA', {que})
+			// },					
 
 
 
