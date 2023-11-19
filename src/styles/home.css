@@ -190,3 +190,6 @@ font-size: 4em;
 .detail-img{
     object-fit: cover;
 }
+.accord{
+    width: 300px !important;
+}

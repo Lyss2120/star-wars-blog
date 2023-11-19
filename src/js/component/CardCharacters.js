@@ -39,7 +39,6 @@ const CardCharacters = ({ detalles, agregarFavorito, url, image, name, gender, h
                                 <FaRegHeart />
                             </button>
                         </div>
-
                     </div>
                 </div>
             </div>

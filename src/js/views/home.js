@@ -7,7 +7,7 @@ import "../../styles/home.css";
 import Cargando from "../component/cargando";
 import CharHome from "../component/CharHome";
 import VehHome from "../component/VehHome";
-
+import Testcard from "../component/testcard.jsx";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -17,10 +17,12 @@ export const Home = () => {
 
 	return (
 		<>
-{/* AL CLICKEAR UNA CARD SE ABREN TODAS ARREGLAR. SCRAPPING PARA SACAR LAS IMGS! */}
+			{/* AL CLICKEAR UNA CARD SE ABREN TODAS por el id, flush-collapseOne, usar d-none o hidden para hacer un collapse. SCRAPPING PARA SACAR LAS IMGS! */}
 			<div>
 				{store.peoples.length > 0 || store.planets.length > 0 || store.vehicles.length > 0 ?
 					(<>
+
+
 						<CharHome />
 
 						<div className="container-md d-flex justify-content-between py-3 ">
@@ -40,12 +42,13 @@ export const Home = () => {
 							</nav>
 						</div>
 						<div className="container-md text-center ">
+
 							<div className="row">
 								{
 									store.peoples?.map((item, index) => {
 
 										return (
-											<CardCharacters
+											<Testcard
 												key={index}
 												name={item.name}
 												gender={item.gender}
@@ -155,21 +158,21 @@ export const Home = () => {
 						</div>
 						<div className="container-md text-center ">
 							<div className="row">
-							{store.vehicles.map((item, index) => {
-								return (
-									<CardVehicles
-										key={index}
-										name={item.name}
-										model={item.model}
-										passengers={item.passengers}
-										vehicle_class={item.vehicle_class}
-										url={item.url}
-										agregarFavorito={actions.agregarFavorito}
-										detalles={"/DetailVehicles/" + item.name}
+								{store.vehicles.map((item, index) => {
+									return (
+										<CardVehicles
+											key={index}
+											name={item.name}
+											model={item.model}
+											passengers={item.passengers}
+											vehicle_class={item.vehicle_class}
+											url={item.url}
+											agregarFavorito={actions.agregarFavorito}
+											detalles={"/DetailVehicles/" + item.name}
 
-									/>
-								);
-							})}
+										/>
+									);
+								})}
 
 							</div>
 
@@ -208,3 +211,16 @@ export const Home = () => {
 };
 
 
+/*
+<CardCharacters
+	key={index}
+	name={item.name}
+	gender={item.gender}
+	hair_color={item.hair_color}
+	eye_color={item.eye_color}
+	mass={item.mass}
+	url={item.url}
+	agregarFavorito={actions.agregarFavorito}
+	detalles={"/DetailCharacters/" + item.name}
+ />
+ */
