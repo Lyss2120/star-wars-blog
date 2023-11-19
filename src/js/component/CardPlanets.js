@@ -4,28 +4,40 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 
-const CardPlanets = ({  detalles, agregarFavorito, url, name, population, terrain, image }) => {
+const CardPlanets = ({  detalles, agregarFavorito, url, name, population, terrain, climate, image }) => {
     return (
-        <div className='container-fluid mb-3' >
-            <div className="card border border-0" style={{ width: '18rem' }}>
+        <div className='caja1.1 my-3 col-sm-3' >
+                <div className="card mb-3 bg-dark test">
                 <img src={image} className="card-img-top" alt="..." />
-                <div className="card-body bg-dark text-start">
-                    <h4 className="card-title py-2">{name}</h4>
-                    <p className='m-0 '>Population: {population}</p>
-                    <p className='m-0 '>Terrain: {terrain}</p>
-                    <div className="d-flex justify-content-between pt-3">
-                        <Link to={detalles} key={name}>
-                            <button href="#" className="btn btn-outline-primary">
-                                Learn more!
+                <div className="">
+                    <div className="accordion accordion-flush" id="accordionFlushExample">
+                            <div className="accordion-item bg-clear text-light">
+                                <h2 className="accordion-header " id="flush-headingOne">
+                                    <button className="accordion-button collapsed bg-dark light-underline" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        <span className='link-clear '>{name}</span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div className="accordion-body">
+                                        <p className='m-0 text-start'>Population: {population}</p>
+                                        <p className='m-0 text-start'>Terrain: {terrain}</p>
+                                        <p className='m-0 text-start'>Climate : {climate}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="d-flex justify-content-between ">
+                            <Link to={detalles} key={name}>
+                                <button href="#" className="btn btn-sm btn-dark">
+                                    Learn more!
+                                </button>
+                            </Link>
+                            <button href="#" className="btn btn-sm btn-dark"
+                                onClick={() => agregarFavorito(name, url)}
+                            >
+                                <FaRegHeart />
                             </button>
-                        </Link>
-                        <button href="#" className="btn btn-outline-warning "
-                            // onClick={() => actions.agregarFavorito(name)}
-                            onClick={() => agregarFavorito(name, url)}
-                        >
-                            <FaRegHeart />
-                        </button>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>

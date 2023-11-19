@@ -17,20 +17,21 @@ export const Home = () => {
 
 	return (
 		<>
-
+{/* AL CLICKEAR UNA CARD SE ABREN TODAS ARREGLAR. SCRAPPING PARA SACAR LAS IMGS! */}
 			<div>
 				{store.peoples.length > 0 || store.planets.length > 0 || store.vehicles.length > 0 ?
 					(<>
 						<CharHome />
+
 						<div className="container-md d-flex justify-content-between py-3 ">
 							<span className='mx-3 fs-4 text-uppercase '>Characters</span>
 							<nav className=" " aria-label="Page navigation example">
 								<ul className="pagination">
-									{ 	store?.paginationPeople?.previous && // si previous es distinto de null se muestra
+									{store?.paginationPeople?.previous && // si previous es distinto de null se muestra
 										<li className="page-item">
-											<a className="page-link bg-dark text-light" 
-											onClick={() => actions.getCharacters(store?.pagination?.previous)} 
-											aria-label="Previous">
+											<a className="page-link bg-dark text-light"
+												onClick={() => actions.getCharacters(store?.pagination?.previous)}
+												aria-label="Previous">
 												<span aria-hidden="true">prev</span>
 											</a>
 										</li>
@@ -38,7 +39,6 @@ export const Home = () => {
 								</ul>
 							</nav>
 						</div>
-
 						<div className="container-md text-center ">
 							<div className="row">
 								{
@@ -59,9 +59,8 @@ export const Home = () => {
 										);
 									})
 								}
-								
 							</div>
-						
+
 							<nav className="" aria-label="Page navigation example">
 								<ul className="pagination">
 									{store?.paginationPeople?.previous && // si previous es distinto de null se muestra people prev
@@ -83,45 +82,79 @@ export const Home = () => {
 
 						</div>
 
+						<div className="container-md d-flex justify-content-between py-3 ">
+							<span className='mx-3 fs-4 text-uppercase '>Planets</span>
+							<nav className=" " aria-label="Page navigation example">
+								<ul className="pagination">
+									{store?.paginationPlanets?.previous && // si previous es distinto de null se muestra
+										<li className="page-item">
+											<a className="page-link bg-dark text-light"
+												onClick={() => actions.getPlanets(store?.paginationPlanets?.previous)}
+												aria-label="Previous">
+												<span aria-hidden="true">prev</span>
+											</a>
+										</li>
+									}
+								</ul>
+							</nav>
+						</div>
+						<div className="container-md text-center ">
+							<div className="row">
+								{store.planets.map((item, index) => {
+									return (
+										<CardPlanets
+											key={index}
+											name={item.name}
+											population={item.population}
+											climate={item.climate}
+											terrain={item.terrain}
+											url={item.url}
+											agregarFavorito={actions.agregarFavorito}
+											detalles={"/DetailPlanets/" + item.name}
+										/>
+									);
+								})}
 
+							</div>
 
-
-
-						<span className='container-md characterName d-flex text-start my-3 py-4 bg-clear rounded text-uppercase'>Planets</span>
-						<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
-							<button
-								className="btn btn-dark shadow-lg mb-3 background text-light "
-								onClick={() => actions.getPlanets(store?.paginationPlanets?.previous)}>
-								<span>PREV</span>
-							</button>
-							{store.planets.map((item, index) => {
-								return (
-									<CardPlanets
-										key={index}
-										name={item.name}
-										population={item.population}
-										terrain={item.terrain}
-										url={item.url}
-										agregarFavorito={actions.agregarFavorito}
-										detalles={"/DetailPlanets/" + item.name}
-
-									/>
-								);
-							})}
-							<button
-								className="btn btn-dark shadow-lg mb-3 background text-light "
-								onClick={() => actions.getPlanets(store?.paginationPlanets?.next)}>
-								<span>NEXT</span>
-							</button>
+							<nav className="" aria-label="Page navigation example">
+								<ul className="pagination">
+									{store?.paginationPlanets?.previous && // si previous es distinto de null se muestra people prev
+										<li className="page-item">
+											<a className="page-link bg-dark text-light" onClick={() => actions.getPlanets(store?.paginationPlanets?.previous)} aria-label="Previous">
+												<span aria-hidden="true">prev</span>
+											</a>
+										</li>
+									}
+									{store?.paginationPlanets?.next && // si next es distinto de null se muestra people next
+										<li className="page-item">
+											<a className="page-link bg-dark text-light" href="#" aria-label="Next" onClick={() => actions.getPlanets(store?.paginationPlanets?.next)}>
+												<span aria-hidden="true">next</span>
+											</a>
+										</li>
+									}
+								</ul>
+							</nav>
 						</div>
 
-						<span className='container-md characterName d-flex text-start my-3 py-4 background rounded text-uppercase'>Vehicles</span>
-						<div className="container-md d-flex overflow-auto shadow-lg p-3  background rounded">
-							<button
-								className="btn btn-dark shadow-lg mb-3 background text-light "
-								onClick={() => actions.getVehicles(store?.paginationVehicles?.previous)}>
-								<span>PREV</span>
-							</button>
+						<div className="container-md d-flex justify-content-between py-3 ">
+							<span className='mx-3 fs-4 text-uppercase '>Vehicles</span>
+							<nav className=" " aria-label="Page navigation example">
+								<ul className="pagination">
+									{store?.paginationVehicles?.previous && // si previous es distinto de null se muestra
+										<li className="page-item">
+											<a className="page-link bg-dark text-light"
+												onClick={() => actions.getVehicles(store?.paginationVehicles?.previous)}
+												aria-label="Previous">
+												<span aria-hidden="true">prev</span>
+											</a>
+										</li>
+									}
+								</ul>
+							</nav>
+						</div>
+						<div className="container-md text-center ">
+							<div className="row">
 							{store.vehicles.map((item, index) => {
 								return (
 									<CardVehicles
@@ -137,11 +170,28 @@ export const Home = () => {
 									/>
 								);
 							})}
-							<button
-								className="btn btn-dark shadow-lg mb-3 background text-light "
-								onClick={() => actions.getVehicles(store?.paginationVehicles?.next)}>
-								<span>NEXT</span>
-							</button>
+
+							</div>
+
+							<nav className="" aria-label="Page navigation example">
+								<ul className="pagination">
+									{store?.paginationVehicles?.previous && // si previous es distinto de null se muestra people prev
+										<li className="page-item">
+											<a className="page-link bg-dark text-light" onClick={() => actions.getVehicles(store?.paginationVehicles?.previous)} aria-label="Previous">
+												<span aria-hidden="true">prev</span>
+											</a>
+										</li>
+									}
+									{store?.paginationVehicles?.next && // si next es distinto de null se muestra people next
+										<li className="page-item">
+											<a className="page-link bg-dark text-light" href="#" aria-label="Next" onClick={() => actions.getVehicles(store?.paginationVehicles?.next)}>
+												<span aria-hidden="true">next</span>
+											</a>
+										</li>
+									}
+								</ul>
+							</nav>
+
 						</div>
 					</>
 					)
