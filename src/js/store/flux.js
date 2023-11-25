@@ -17,13 +17,43 @@ const getState = ({ getStore, getActions, setStore }) => {
 			randomNumber: 0,
 			peopleCount:0,
 			planetsCount:0,
-			vehiclesCount:0
+			vehiclesCount:0,
+			randomF:''
 
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 
 			//1° fetch para sacr el url de cada personaje
+
+			getXcharacters: async (url) => {
+				const store = getStore();
+
+				try {
+					const res = await fetch(url, {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await res.json()
+					console.log( data.name , 'getXcharacters');
+					
+					setStore({ randomF: data });
+
+					return true
+				}
+				
+				catch (error) { console.log(error) };
+			}, //trae cualquier personaje de los 82
+			
+			getXcharacterByName: async (name) => {
+				const store = getStore();
+				let foundCharacter = store?.RandomFour?.find((xChar) => xChar.name === name)
+				const data = ({...foundCharacter})
+				setStore({ character: data })
+			},//SACA LOS DETALLES DEL XCHAR
+
 			getCharacters: async (url) => {
 				const store = getStore();
 
@@ -35,7 +65,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
+					getActions().getRandomChar(data.results)
+					
 					setStore({ peoples: data.results, paginationPeople: data, peopleCount: data.count });
 					// setStore({ paginationPeople: data, peoplesCount: data.count });
 					return true
@@ -55,7 +87,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ planets: data.results, paginationPlanets: data, planetsCount: data.count });
 					// setStore({ paginationPlanets: data, planetsCount: data.count  });
 					return true
@@ -75,10 +107,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ vehicles: data.results, paginationVehicles: data, vehiclesCount: data.count });
 					// setStore({ paginationVehicles: data });
-					console.log('guugugugu',store.vehicles, store.paginationVehicles, 'count',store.vehiclesCount);
+
 					return true
 				}
 				
@@ -128,25 +160,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	let random = Math.floor(Math.random() * num) + 1;
 			// 	return random
 			// },
-			// getRandomChar: () => {
-			// 	const store = getStore();
-			// 	const {peoples, planets, peopleCount, paginationPeople} = store 
-			// 	let RandomFour = [];
-			// 	let random, que
+			getRandomChar: (arr) => {
+				const store = getStore();
+				let RandomFour = [];
+				let random, xChar, xCharUrl 
+				let RandomFour2 = new Array(4).fill(0)
+				
+				console.log(RandomFour2);
+				RandomFour2.map((item, _)=>{
+						item = Math.floor(Math.random() * 10)
+						xCharUrl = arr[item].url
+						xChar = getActions().getXcharacters(xCharUrl)
 
-			// 	for (let i = 0; i < 4; i++) {
-			// 		random = getActions().randomNumber(10)  
-			// 		RandomFour.push(random)
-			// 	}
-			// 	for (let i = 0; i < RandomFour.length; i++) {
-			// 		let element = RandomFour[i];//numeo de id que[0]
-			// 		// que = peoples[4].name
-			// 		// 					 console.log(que, {element})
-			// 	}
-			// 	 setStore({ RandomFour: RandomFour })
-			// 	// es un array con 4 numeros , de aqui tienen que salir 4 personajes segun su index en characters
-			//     // console.log({RandomFour},'HOLA', {que})
-			// },					
+						// RandomFour.push(xchar)
+						console.log(item, xchar.name)
+					
+				})
+				for (let i = 0; i < 4; i++) {
+					random = Math.floor(Math.random() * 10)
+					let xchar= arr[random] 
+					RandomFour.push(xchar)
+				}
+
+				setStore({ RandomFour: RandomFour })
+				// es un array con 4 numeros , de aqui tienen que salir 4 personajes segun su index en characters
+			     console.log({RandomFour},'HOLA')
+			},					
 
 
 

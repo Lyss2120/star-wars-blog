@@ -7,14 +7,9 @@ import { useContext } from "react";
 const CharHome = (props) => {
     const { store, actions } = useContext(Context);
 
-    // useEffect(() => {
-    //     // console.log('se ejecuta useeffect', name);
-    //     let aver
-    //     store.peoples && store.planets && store.vehicles ?
-    //    aver=actions.getCharacters('https://swapi.dev/api/people/7')//poner  caquier nr o setear n random number para probar si haciendo un fetxh individual puedo traerme los random characters
-    //     : null
-    //     // actions.detailPeople(url)
-    // }, [store.peoples])
+    useEffect(() => {
+    actions.getRandomChar()
+    }, [])
 
 
 
